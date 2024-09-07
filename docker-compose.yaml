@@ -4,12 +4,18 @@ services:
     container_name: n2app-minio
     ports:
       - "9000:9000"
-      - "80:9001"
+      - "9001:9001"
     environment:
       MINIO_ROOT_USER: admin
       MINIO_ROOT_PASSWORD: Strong#Pass#2024
+      MINIO_BROWSER_REDIRECT_URL: "https://n2app-file.pea.co.th"
     volumes:
       - n2app-minio:/data
     command: server --console-address ":9001" /data
+    networks:
+      - n2app-file
 volumes:
   n2app-minio:
+networks:
+  n2app-file:
+    driver: bridge
