@@ -1,0 +1,15 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: n2app-minio
+    ports:
+      - "9000:9000"
+      - "80:9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: Strong#Pass#2024
+    volumes:
+      - n2app-minio:/data
+    command: server --console-address ":9001" /data
+volumes:
+  n2app-minio:
