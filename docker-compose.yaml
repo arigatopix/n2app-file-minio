@@ -13,9 +13,10 @@ services:
       - n2app-minio:/data
     command: server --console-address ":9001" /data
     networks:
-      - n2app-file
+      - n2app-file-networks
 volumes:
   n2app-minio:
 networks:
-  n2app-file:
-    driver: bridge
+  n2app-file-networks:
+    external: true
+    name: n2app-file-networks
