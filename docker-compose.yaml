@@ -1,6 +1,6 @@
 services:
   minio:
-    image: minio/minio
+    image: minio/minio:RELEASE.2024-08-29T01-40-52Z
     container_name: n2app-minio
     ports:
       - "9000:9000"
